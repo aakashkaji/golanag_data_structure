@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-// stack concept based on ***********FIFO*******//
+// stack concept based on ***********LIFO -> Last In First Out*******//
 
 type stack struct {
 	items []int
