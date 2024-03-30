@@ -5,6 +5,8 @@ import "fmt"
 // practical use of first class fun.
 // In this program we pass fun as argument to the fun and filters student grade
 
+type filter func(s student) bool
+
 type student struct {
 	name       string
 	country    string
@@ -14,7 +16,7 @@ type student struct {
 }
 
 // return list of student having filter fun...
-func getStudent(s []student, filter func(s student) bool) []student {
+func getStudent(s []student, filter filter) []student {
 
 	var filterStudents []student
 
@@ -72,7 +74,7 @@ func main() {
 	stAge := getStudent(stList, func(s student) bool {
 		if s.age > 18 {
 			return true
-		}else {
+		} else {
 			return false
 		}
 	})

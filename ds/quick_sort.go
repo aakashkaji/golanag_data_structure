@@ -26,7 +26,7 @@ func quickSort(arr []int) {
 			right--
 			fmt.Println("-----swap")
 		}
-		fmt.Println("***",arr)
+		fmt.Println("***", arr)
 
 	}
 

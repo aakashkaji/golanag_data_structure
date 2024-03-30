@@ -32,6 +32,13 @@ func withMaxConnection(s int) OptFunc {
 	}
 }
 
+func withIp(s string) OptFunc {
+	return func(o *Opts) {
+
+		o.Ip = s
+	}
+}
+
 func setDefault() Opts {
 	return Opts{Id: "1234", Port: 80, Ip: "192.168.20.203", MaxConnection: 10, Tls: false}
 
@@ -53,6 +60,6 @@ func GetServer(otpfun ...OptFunc) *Server {
 
 func main() {
 
-	fmt.Println(GetServer(withTls, witPort(433), withMaxConnection(99)))
+	fmt.Println(GetServer(withTls, witPort(433), withMaxConnection(99), withIp("192.169.147.201")))
 
 }
