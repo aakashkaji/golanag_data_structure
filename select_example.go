@@ -1,29 +1,19 @@
 package main
 
-import (
-	"fmt"
-	"time"
-)
-
-func process(chss chan string) {
-	time.Sleep(10500 * time.Millisecond)
-	chss <- "process successful"
-}
+import "fmt"
 
 func main() {
-	strChan := make(chan string)
 
-	go process(strChan)
+	v := 15 % 4
 
-	for {
-		time.Sleep(1000 * time.Millisecond)
-		select {
-		case v := <-strChan:
-			fmt.Println(v)
-			return
-		default:
-			fmt.Println("No value Received...")
-		}
+	switch v {
+	case 3:
+		fmt.Println(100)
+		fallthrough
+	case 2:
+		fmt.Println(42)
+	case 1:
+		fmt.Println(1000)
 	}
 
 }
